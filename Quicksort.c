@@ -4,24 +4,24 @@
  static int top=-1;
 static int c;
 static int d;
-int RL(int arr[],int piv)
+int RL(int arr[],int piv)//this fuction will check from right to left 
 {
 	int i,temp;
 	for(i=c;i>d;i--)
 	{
-		if(piv>arr[i])
+		if(piv>arr[i])//if the element smaller than the pivot element then swap the element  
 		{
 		    temp=arr[i];
 		    arr[i]=piv;
 		    arr[d]=temp;
-			c=d;
-			d=i;
-			return 1;
+			c=d-1;//store the value of d
+			d=i;//store that value will be swap
+			return 1;//for that element is swap and return 1 if not than return 2 that means the element is not swap and state that element in the right place 
 		}
 	}
 	return 2;
 }
-int LR(int arr[],int piv)
+int LR(int arr[],int piv)//same as above but some difference
 {
 	int i,temp;
 	for(i=c+1;i<d;i++)
@@ -33,7 +33,7 @@ int LR(int arr[],int piv)
 		    arr[i]=piv;
 		    arr[d]=temp;
 
-			c=d;
+			c=d-1;
 			d=i;
 			return 1;
 		}
@@ -129,7 +129,7 @@ int main()
 	top--;
 	
 	for(i=0;i<n;i++)
-		printf("%d		",arr[i]);
+		printf("%d ",arr[i]);
 	printf("\n");
 
 return 0;
